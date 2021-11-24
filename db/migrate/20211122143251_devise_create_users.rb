@@ -9,8 +9,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :first_name
       t.string :last_name
       t.date :birth_date
-      t.boolean :is_admin?, default: false
-      t.boolean :is_deleted?, default: false
+      t.string :city
+      t.boolean :is_admin, default: false
+      t.boolean :is_deleted, default: false
       
       
       ## Recoverable

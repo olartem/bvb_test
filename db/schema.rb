@@ -58,8 +58,10 @@ ActiveRecord::Schema.define(version: 2021_11_23_132641) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.integer "money_goal"
+    t.integer "current_money"
     t.text "description"
     t.date "end_date"
+    t.boolean "is_deleted"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -70,8 +72,9 @@ ActiveRecord::Schema.define(version: 2021_11_23_132641) do
     t.string "first_name"
     t.string "last_name"
     t.date "birth_date"
-    t.boolean "is_admin?", default: false
-    t.boolean "is_deleted?", default: false
+    t.string "city"
+    t.boolean "is_admin", default: false
+    t.boolean "is_deleted", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

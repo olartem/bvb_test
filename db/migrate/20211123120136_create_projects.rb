@@ -3,9 +3,10 @@ class CreateProjects < ActiveRecord::Migration[6.1]
     create_table :projects do |t|
       t.string :name
       t.integer :money_goal
+      t.integer :current_money
       t.text :description
       t.date :end_date
-
+      t.boolean :is_deleted
       t.timestamps
     end
   end
