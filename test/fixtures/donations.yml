@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  confirmation_status: false
+  user: one
+  project: one
+
+two:
+  amount: 1
+  confirmation_status: false
+  user: two
+  project: two

@@ -8,7 +8,8 @@
         <div class="col-sm-4 offset-md-1 py-4">
           <ul class="list-unstyled">
             <% if current_user %>
-              <p><%= link_to "Edit Account", edit_user_registration_path, class: 'text-white' %></p>
+              <p class='text-white'>Signed up as <%=current_user.first_name + " " + current_user.last_name %>
+              <p><%= link_to "My Profile", edit_user_registration_path, class: 'text-white' %></p>
               <p><%= link_to "Sign Out", destroy_user_session_path, class: 'text-white' %></p>
             <%else%>
               <p><%= link_to "Create Account", new_user_registration_path, class: 'text-white' %></p>

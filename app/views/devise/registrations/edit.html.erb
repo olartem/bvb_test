@@ -7,10 +7,15 @@
 
       <div class="row g-3 mb-3">
         <div class="col">
-          <%= f.text_field :first_name, class: "form-control", placeholder: "First name", required: 'required' %>
+          <%if resource.avatar.attached?%>
+          <%= image_tag(resource.avatar.variant(resize: '200').processed)%>
+          <%end%>
         </div>
         <div class="col">
-          <%= f.text_field :last_name, class: "form-control", placeholder: "Last name", required: 'required' %>
+          <%= f.text_field :first_name, class: "form-control mb-3", placeholder: "First name", required: 'required' %>
+          <%= f.text_field :last_name, class: "form-control mb-3", placeholder: "Last name", required: 'required' %>
+          <%= f.date_field :birth_date, class: 'form-control mb-3', placeholder: 'Date of Birth', required: 'required' %>
+          <%= f.file_field :avatar, class: 'form-control' %>
         </div>
       </div>
 
@@ -34,10 +39,6 @@
       <div class="mb-3">
         <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: 'Current Password'  %>
         <p class="form-text text-muted"><small>We need your current password to confirm your changes</small></p>
-      </div>
-
-      <div class="mb-3">
-        <%= f.date_field :birth_date, class: 'form-control', placeholder: 'Date of Birth', required: 'required' %>
       </div>
 
       <div class="mb-3 d-grid">
