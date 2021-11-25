@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
   has_one_attached :avatar
-  validates :email, :first_name, :last_name, :birth_date, :city, presence: true
+  validates :email, :first_name, :last_name, :birth_date, :city, :gender, presence: true
   validates :email, uniqueness: true
   validates :password, presence: true, on: :create
   has_many :donations, dependent: :destroy
