@@ -28,14 +28,16 @@ class DonationDashboard < Administrate::BaseDashboard
     user
     project
     amount
+    confirmation_status
+    is_deleted
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    id
     user
     project
-    id
     amount
     confirmation_status
     is_deleted
@@ -47,8 +49,6 @@ class DonationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    user
-    project
     amount
     confirmation_status
     is_deleted

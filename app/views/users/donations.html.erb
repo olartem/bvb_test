@@ -1,0 +1,29 @@
+<h2>My Donations</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Project</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+      <th scope="col">Confirmation status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.donations.each do |donation| %>
+      <% project = Project.find(donation.project_id) %>
+      <tr>
+        <td><%= link_to "#{project.name}", project_path(project), class: 'text-black' %></td>
+        <td><%= donation.amount %></td>
+        <td><%= donation.created_at.strftime("%Y-%m-%d") %></td>
+        <td>
+          <% if donation.confirmation_status%>
+            Confirmed
+          <%else%>
+            Unconfirmed
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

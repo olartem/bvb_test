@@ -8,13 +8,15 @@
       <div class="row g-3 mb-3">
         <div class="col">
           <%if resource.avatar.attached?%>
-          <%= image_tag(resource.avatar.variant(resize: '200').processed)%>
+          <img src="<%=(url_for(@user.avatar))%>" alt="..." height="300">
           <%end%>
         </div>
         <div class="col">
           <%= f.text_field :first_name, class: "form-control mb-3", placeholder: "First name", required: 'required' %>
           <%= f.text_field :last_name, class: "form-control mb-3", placeholder: "Last name", required: 'required' %>
           <%= f.date_field :birth_date, class: 'form-control mb-3', placeholder: 'Date of Birth', required: 'required' %>
+          <%= f.text_field :city, class: "form-control mb-3", placeholder: "City", required: 'required' %>
+          <%= f.select :gender, ["Male", "Female", "Other"],{}, class: "form-control mb-3", placeholder: 'Gender', required: 'required' %>
           <%= f.file_field :avatar, class: 'form-control' %>
         </div>
       </div>

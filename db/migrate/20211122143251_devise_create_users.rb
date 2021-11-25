@@ -10,6 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.date :birth_date
       t.string :city
+      t.string :gender
       t.boolean :is_admin, default: false
       t.boolean :is_deleted, default: false
       

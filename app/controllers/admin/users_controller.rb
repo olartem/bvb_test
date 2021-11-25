@@ -1,5 +1,21 @@
 module Admin
   class UsersController < Admin::ApplicationController
+
+    def destroy_avatar
+      avatar = requested_resource.avatar
+      avatar.purge
+      redirect_back(fallback_location: requested_resource)
+    end
+
+    def scoped_resource
+      resource_class.with_attached_avatar
+    end
+
+    def destroy
+      user = User.find(params[:id])
+      user.update_attribute(:is_deleted, true)
+    end
+
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #

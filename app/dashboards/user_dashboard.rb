@@ -9,7 +9,6 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     avatar: Field::ActiveStorage,
-
     donations: Field::HasMany,
     id: Field::Number,
     email: Field::String,
@@ -47,8 +46,6 @@ class UserDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    avatar
-    donations
     id
     email
     encrypted_password
@@ -58,9 +55,10 @@ class UserDashboard < Administrate::BaseDashboard
     city
     is_admin
     is_deleted
-
+    donations
     created_at
     updated_at
+    avatar
   ].freeze
 
   # FORM_ATTRIBUTES

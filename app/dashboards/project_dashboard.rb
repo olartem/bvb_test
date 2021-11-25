@@ -9,10 +9,11 @@ class ProjectDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     donations: Field::HasMany,
-    images_attachments: Field::HasMany,
+    images: Field::ActiveStorage,
     images_blobs: Field::HasMany,
     id: Field::Number,
     name: Field::String,
+    current_money: Field::Number,
     money_goal: Field::Number,
     description: Field::Text,
     is_deleted: Field::Boolean,
@@ -31,33 +32,43 @@ class ProjectDashboard < Administrate::BaseDashboard
     name
     donations
     money_goal
+    is_deleted
+    current_money
     end_date
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    donations
     id
     name
     money_goal
+    current_money
     description
     end_date
+    donations
+    is_deleted
     created_at
     updated_at
+    images
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    images_attachments
-    images_blobs
+    images
     name
     money_goal
+    current_money
+    is_deleted
     description
     end_date
   ].freeze
+
+  def permitted_attributes
+    super + [:images => []]
+  end
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search

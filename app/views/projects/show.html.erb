@@ -4,16 +4,14 @@
         <div class="col-lg-8 border p-3 main-section bg-white">
             <div class="row m-0">
                 <div class="col-lg-4 left-side-product-box pb-3">
-                    <img src="http://nicesnippets.com/demo/pd-image1.jpg" class="border p-3">
-                    <span class="sub-img">
-                        <img src="http://nicesnippets.com/demo/pd-image2.jpg" class="border p-2">
-                        <img src="http://nicesnippets.com/demo/pd-image3.jpg" class="border p-2">
-                        <img src="http://nicesnippets.com/demo/pd-image4.jpg" class="border p-2">
-                        <img src="http://nicesnippets.com/demo/pd-image4.jpg" class="border p-2">
-                        <img src="http://nicesnippets.com/demo/pd-image4.jpg" class="border p-2">
-                        <img src="http://nicesnippets.com/demo/pd-image4.jpg" class="border p-2">
-                        <img src="http://nicesnippets.com/demo/pd-image4.jpg" class="border p-2">
-                    </span>
+                    <% if @project.images.attached?%>
+                        <%=image_tag(@project.images.last) %>
+                        <span class="sub-img">
+                            <% for i in (0...@project.images.count-1) %>
+                                <%= image_tag(@project.images[i])%>
+                            <% end %>
+                        </span>
+                    <% end %>
                 </div>
                 <div class="col-lg-8">
                     <div class="right-side-pro-detail border p-3 m-0">
@@ -27,7 +25,13 @@
                                         <p class="m-0 p-0 text-black">Our goal: $<%= @project.money_goal %></p>
                                     </div>
                                     <div class='col'>
-                                        <p class="m-0 p-0 price-pro">Left: $<%= @project.money_goal - @sum %></p>
+                                        <% if @project.money_goal > @project.current_money%>
+                                            <p class="m-0 p-0 price-pro">Left: <%= @project.money_goal - @project.current_money %></p>
+                                            <p class="m-0 p-0 price-pro">Current earnings: <%= @project.current_money %>
+                                        <%else%>
+                                            <p class="m-0 p-0 price-pro">We did it!</p>
+                                            <p class="m-0 p-0 price-pro">Current earnings: <%= @project.current_money %>
+                                        <%end%>
                                         
                                     </div>
                                 </span>

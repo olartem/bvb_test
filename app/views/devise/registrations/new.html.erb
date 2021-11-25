@@ -9,9 +9,17 @@
         <div class="col">
           <%= f.text_field :first_name, class: "form-control", placeholder: "First name", required: 'required' %>
         </div>
+
         <div class="col">
           <%= f.text_field :last_name, class: "form-control", placeholder: "Last name", required: 'required' %>
         </div>
+        <div class='col'>
+          <%= f.select :gender, ["Male", "Female", "Other"], {},  class: "form-control", placeholder: 'Gender', required: 'required' %>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <%= f.text_field :city, class: "form-control mb-3", placeholder: "City", required: 'required' %>
       </div>
 
       <div class="mb-3">

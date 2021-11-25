@@ -8,4 +8,12 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, presence: true, on: :create
   has_many :donations, dependent: :destroy
+
+  def active_for_authentication?
+    super && !is_deleted
+  end
+
+  def soft_delete
+    update_attribute(:is_deleted, true)
+  end
 end

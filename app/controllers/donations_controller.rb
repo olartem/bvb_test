@@ -1,23 +1,20 @@
 class DonationsController < ApplicationController
-  before_action :find_project
+  before_action :find_project, :authenticate_user!
   before_action :find_donation, only: [:destroy]
   def create
     @donation = current_user.donations.build(donation_params)
     @donation.project = @project
     if @donation.save
-      flash[:notice] = "Donated successfully" 
-      redirect_to root_path
-    else 
-      flash[:alert] = "Something went wrong"
+      flash[:notice] = 'Donated successfully. Wait for confirmation'
+      redirect_to project_path(@project)
+    else
+      flash[:alert] = 'Select amount'
+      redirect_to project_path(@project)
     end
   end
 
-  def destroy
-    @donation.is_deleted = true
-  end
-
   private
-  
+
   def donation_params
     params.require(:donation).permit(:amount)
   end

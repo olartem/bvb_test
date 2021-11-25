@@ -1,5 +1,20 @@
 module Admin
   class ProjectsController < Admin::ApplicationController
+
+    def destroy_avatar
+      image = requested_resource.images.find(params[:attachment_id])
+      image.purge
+      redirect_back(fallback_location: requested_resource)
+    end
+
+    def scoped_resource
+      resource_class.with_attached_images
+    end
+
+    def destroy
+      project = Project.find(params[:id])
+      project.update_attribute(:is_deleted, true)
+    end
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
