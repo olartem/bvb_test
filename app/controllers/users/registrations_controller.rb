@@ -1,4 +1,8 @@
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+  
   def destroy
     resource.soft_delete
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
