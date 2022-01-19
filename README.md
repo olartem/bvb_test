@@ -5,7 +5,7 @@
 * DB: PostgreSQL 10
 
 ## Installation
-1. Setup database.yml file
+1. Configure database.yml file
 2.
 ```bash
 bundle install
