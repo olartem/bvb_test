@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 3.0.2
+* Ruby on Rails version: 6.1.4
+* DB: PostgreSQL 10
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Installation
+1. Setup database.yml file
+2.
+```bash
+bundle install
+```
+3.
+```bash
+rails db:setup
+```
+4.
+```bash
+rails webpacker:install
+```
+5.
+```bash
+rails s
+```
+## Default Admin
+email: admin@admin.com
+password: admin1
