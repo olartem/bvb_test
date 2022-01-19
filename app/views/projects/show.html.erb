@@ -22,44 +22,49 @@
                             <div class="col-lg-12">
                                 <span class='row'>
                                     <div class='col'>
-                                        <p class="m-0 p-0 text-black">Our goal: $<%= @project.money_goal %></p>
+                                        <p class="m-0 p-0 text-black"><%=t('.goal')%> <%=@project.money_goal %></p>
                                     </div>
                                     <div class='col'>
                                         <% if @project.money_goal > @project.current_money%>
-                                            <p class="m-0 p-0 price-pro">Left: <%= @project.money_goal - @project.current_money %></p>
-                                            <p class="m-0 p-0 price-pro">Current earnings: <%= @project.current_money %>
+                                            <p class="m-0 p-0 price-pro"><%=t('.left')%> <%=@project.money_goal - @project.current_money %></p>
+                                            <p class="m-0 p-0 price-pro"><%=t('.current')%> <%= @project.current_money %>
                                         <%else%>
-                                            <p class="m-0 p-0 price-pro">We did it!</p>
-                                            <p class="m-0 p-0 price-pro">Current earnings: <%= @project.current_money %>
+                                            <p class="m-0 p-0 price-pro"><%=t('.success')%></p>
+                                            <p class="m-0 p-0 price-pro"><%=t('.current')%> <%= @project.current_money %>
                                         <%end%>
                                         
                                     </div>
                                 </span>
                                 <span class='row'>
                                     <div class='col'>
-                                        <p class="m-0 p-0">Start: <%= @project.created_at.strftime('%Y-%m-%d') %></p>
+                                        <p class="m-0 p-0"><%= t('.start')%> <%=l @project.created_at.to_date, format: :long %></p>
                                     </div>
                                     <div class='col'>
-                                        <p class="m-0 p-0">End: <%= @project.end_date.strftime('%Y-%m-%d') %></p>
+                                        <p class="m-0 p-0"><%= t('.end')%> <%=l @project.end_date, format: :long %></p>
                                         
                                     </div>
                                 </span>
                                 <hr class="p-0 m-0"> 
                             </div>
-                            <div class="col-lg-12 pt-2">
-                                <h5>Project Detail</h5>
+                            <div class="col-lg-12 pt-2 mb-5">
+                                <h5><%=t('.project_details')%></h5>
                                 <span><%= @project.description.capitalize %></span>
                                 <hr class="m-0 pt-1 mt-2">
                             </div>
+                            <%= line_chart @project.donations.group_by_day(:created_at).count %>
+                            <h5 class="mt-3"><%=t('.our_donators')%></h5>
+                            <p>
+                                <div id="map"></div>
+                            </p>
                             <%= form_for([@project, Donation.new]) do |f| %>
                                 <div class="col-lg-12 mt-3">
-                                    <h6>Donation:</h6>
-                                    <%= f.number_field :amount, class:"form-control text-center w-100", placeholder: 'Amount'%>
+                                    <h6><%=t('.donation')%>:</h6>
+                                    <%= f.number_field :amount, class:"form-control text-center w-100", placeholder: t('.amount')%>
                                 </div>
                                 <div class="col-lg-12 mt-3">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <%= f.submit "Donate", class: 'btn btn-success' %>
+                                            <%= f.submit t('.donate'), class: 'btn btn-success' %>
                                         </div>
                                     </div>
                                 </div>
@@ -70,3 +75,10 @@
             </div>
         </div>
 </div>
+<% provide :head_tags do %>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(49.30555350945745, 31.54895273618726,<%=@markers.to_json.html_safe%>)
+    });
+    </script>
+<% end %>

@@ -9,9 +9,17 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, presence: true, on: :create
   has_many :donations, dependent: :destroy
-
+  has_one :location, dependent: :destroy
+  after_create :add_location
+  
   def active_for_authentication?
     super && !is_deleted
+  end
+
+  def add_location
+    if self.city
+      Location.create(user: self, city: self.city)
+    end
   end
 
   def soft_delete

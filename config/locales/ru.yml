@@ -1,0 +1,110 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+ru:
+  helpers:
+    label:
+      donation:
+        user: Пользователь
+        project: Проект
+      project:
+        donations: Пожертвования
+      user:
+        donations: Пожертвования
+      "true": "Да"
+      "false": "Нет"
+  activerecord:
+    models:
+      donation: 'Пожертвование'
+      project: 'Проект'
+      user: 'Пользователь'
+      location: 'Локация'
+    attributes:
+      user:
+        email: 'Е-мейл'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        city: Город
+        birth_date: Дата рождения
+        gender: Пол
+        is_admin: Админ ?
+        is_deleted: Удалено ?
+      project:
+        name: Название
+        money_goal: Цель
+        current_money: Текущие сборы
+        description: Описание
+        end_date: Дата конца
+        is_deleted: Удалено ?
+      donation:
+        amount: Сумма
+        confirmation_status: Статус Подтверждения
+        is_deleted: Удалено ?
+        user_id: Пользователь
+        project_id: Проект
+  users:
+      donations:
+        project: Проект
+        amount: Сумма
+        date: Дата
+        confirmation_status: Статус Подтверждения
+        confirmed: Подтверждено
+        unconfirmed: Не подтверждено
+  projects:
+      show:
+        goal: Цель
+        start: Начало
+        end: Конец
+        left: Осталось собрать 
+        current: Текущие сборы
+        success: Собрано!
+        project_details: Описание проекта
+        our_donators: Наши пожертвователи
+        donation: Пожертвование
+        amount: Сумма
+        donate: Пожертвовать
+  layouts:
+      header:
+        about: Описание
+        description: Описание
+        signed_up_as: Зарегистрировано как
+        my_profile: Мой Профиль
+        my_donations: Мои Пожертвования
+        sign_out: Выйти
+        sign_in: Войти
+        admin_dashboard: Панель Администратора
+        create_account: Создать Аккаунт
+        home: Главная
+  home:
+      index:
+        charity_projects: Благотворительные проекты
+        description: Описание
+        view: Детали

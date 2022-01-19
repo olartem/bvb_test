@@ -39,8 +39,6 @@ class UserDashboard < Administrate::BaseDashboard
     city
     is_admin
     is_deleted
-    donations
-    
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -66,18 +64,13 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     avatar
-    donations
     email
-    encrypted_password
     first_name
     last_name
     birth_date
     city
     is_admin
     is_deleted
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
   ].freeze
 
   # COLLECTION_FILTERS
@@ -98,4 +91,7 @@ class UserDashboard < Administrate::BaseDashboard
   # def display_resource(user)
   #   "User ##{user.id}"
   # end
+  def display_resource(user)
+    return(user.first_name + " " + user.last_name)
+  end
 end

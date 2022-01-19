@@ -2,36 +2,47 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+          <h4 class="text-white"><%= t('.about')%></h4>
+          <p class="text-muted"><%= t('.description')%></p>
+          
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
+          <div class="dropdown">
+            <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= I18n.locale.capitalize %>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+              <li><%= link_to 'English', root_path(locale: :en), class: 'dropdown-item' %></li>
+              <li><%= link_to 'Русский', root_path(locale: :ru), class: 'dropdown-item' %></li>
+            </ul>
+          </div>
           <ul class="list-unstyled">
             <% if current_user %>
               <% if !current_user.is_admin%>
-                <p class='text-white'>Signed up as <%=current_user.first_name + " " + current_user.last_name %>
-                <p><%= link_to "My Profile", edit_user_registration_path, class: 'text-white' %></p>
-                <p><%= link_to "My Donations", user_donations_path(current_user), class: 'text-white' %></p>
-                <p><%= link_to "Sign Out", destroy_user_session_path, class: 'text-white', method: :delete %></p>
+                <p class='text-white'><%=t('.signed_up_as') + current_user.first_name + " " + current_user.last_name %>
+                <p><%= link_to t('.my_profile'), edit_user_registration_path, class: 'text-white' %></p>
+                <p><%= link_to t('.my_donations'), user_donations_path(current_user), class: 'text-white' %></p>
+                <p><%= link_to t('.sign_out'), destroy_user_session_path, class: 'text-white', method: :delete %></p>
               <% end %>
                 <% if current_user.is_admin %>
-                  <%= link_to "Admin Dashboard", admin_users_path, class: 'text-white' %>
-                  <p><%= link_to "Sign Out", destroy_user_session_path, class: 'text-white', method: :delete %></p>
+                  <%= link_to t('.admin_dashboard'), admin_users_path, class: 'text-white' %>
+                  <p><%= link_to t('.sign_out'), destroy_user_session_path, class: 'text-white', method: :delete %></p>
                 <% end %>
             <%else%>
-              <p><%= link_to "Create Account", new_user_registration_path, class: 'text-white' %></p>
-              <p><%= link_to "Sign In", new_user_session_path, class: 'text-white' %></p>
+              <p><%= link_to t('.create_accout'), new_user_registration_path, class: 'text-white' %></p>
+              <p><%= link_to t('.sign_in'), new_user_session_path, class: 'text-white' %></p>
             <%end%>
-          </ul>
+          </ul> 
         </div>
       </div>
     </div>
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
-      <%= link_to "Home", root_path, class: 'navbar-brand d-flex align-items-center' %>
+      <%= link_to t('.home'), root_path, class: 'navbar-brand d-flex align-items-center' %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
     </div>
   </div>

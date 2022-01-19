@@ -7,9 +7,11 @@ import "bootstrap"
 import "../stylesheets/application.scss"
 import "jquery"
 import "@fortawesome/fontawesome-free/css/all"
+import "chartkick/chart.js"
 
 global.$ = jQuery;
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+

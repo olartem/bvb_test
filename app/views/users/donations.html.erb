@@ -3,10 +3,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Project</th>
-      <th scope="col">Amount</th>
-      <th scope="col">Date</th>
-      <th scope="col">Confirmation status</th>
+      <th scope="col"><%=t('.project')%></th>
+      <th scope="col"><%=t('.amount')%></th>
+      <th scope="col"><%=t('.date')%></th>
+      <th scope="col"><%=t('.confirmation_status')%></th>
     </tr>
   </thead>
   <tbody>
@@ -15,12 +15,12 @@
       <tr>
         <td><%= link_to "#{project.name}", project_path(project), class: 'text-black' %></td>
         <td><%= donation.amount %></td>
-        <td><%= donation.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= l donation.created_at, format: :short %></td>
         <td>
           <% if donation.confirmation_status%>
-            Confirmed
+            <%=t('.confirmed')%>
           <%else%>
-            Unconfirmed
+            <%=t('.unconfirmed')%>
           <% end %>
         </td>
       </tr>

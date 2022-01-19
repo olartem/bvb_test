@@ -30,4 +30,81 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    label:
+      donation:
+        user: user
+        project: project
+      project:
+        donations: donations
+      user:
+        donations: donations
+      "true": "true"
+      "false": "false"
+  activerecord:
+    models:
+      donation: Donation
+      project: Project
+      user: User
+      location: Location
+    attributes:
+      user:
+        email: Email
+        first_name: First name
+        last_name: Last name
+        city: City
+        birth_date: Birth date
+        gender: Gender
+        is_admin: Is admin
+        is_deleted: Is deleted
+      project:
+        name: Name
+        money_goal: Money goal
+        current_money: Current money
+        description: Description
+        end_date: End Date
+        is_deleted: Is deleted
+      donation:
+        amount: Amount
+        confirmation_status: Confirmation status
+        is_deleted: Is deleted
+        user_id: User
+        project_id: Project
+  users:
+      donations:
+        project: Project
+        amount: Amount
+        date: Date
+        confirmation_status: Confirmation status
+        confirmed: Confirmed
+        unconfirmed: Unconfirmed
+  projects:
+      show:
+        goal: Goal
+        start: Start
+        end: End
+        left: Left
+        current: Current earnings
+        success: We did it!
+        project_details: Project Details
+        our_donators: Our Donators
+        donation: Donation
+        amount: Amount
+        donate: Donate
+  layouts:
+      header:
+        about: about
+        description: Description
+        signed_up_as: Signed up as
+        my_profile: My Profile
+        my_donations: My Donations
+        sign_out: Sign Out
+        sign_in: Sign In
+        admin_dashboard: Admin Dashboard
+        create_account: Create Account
+        home: Home
+  home:
+      index:
+        charity_projects: Charity Projects
+        description: Description
+        view: View

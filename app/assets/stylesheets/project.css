@@ -15,6 +15,12 @@ body {
   transform: translate(-50%, 5%);
 }
 
+#map {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
 .left-side-product-box img {
   width: 100%;
 }

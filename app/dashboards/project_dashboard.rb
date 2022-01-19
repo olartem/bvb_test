@@ -30,7 +30,6 @@ class ProjectDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
-    donations
     money_goal
     is_deleted
     current_money
@@ -88,5 +87,7 @@ class ProjectDashboard < Administrate::BaseDashboard
   # def display_resource(project)
   #   "Project ##{project.id}"
   # end
-  
+  def display_resource(project)
+    project.name
+  end
 end
