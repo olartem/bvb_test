@@ -2,6 +2,12 @@
 
 en:
   devise:
+    shared:
+      links:
+        log_in: Log In
+        sign_up: Sign Up
+        forgot_password: Forgot password 
+        sign_up_google: Sign up with Google
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
@@ -37,6 +43,37 @@ en:
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
     registrations:
+      new:
+        sign_up: Sign Up
+        first_name: First Name
+        last_name: Last Name
+        birth_date: Date of Birth
+        city: City
+        email: Email Address
+        password: Password
+        confirm_password: Confirm Password
+        male: Male
+        female: Female
+        other: Other
+        gender: Gender
+        to_sign_up: Sign Up
+      edit:
+        leave_blank: Leave password blank if you don't want to change it
+        are_you_sure: Are you sure ? You can't undo this
+        deactivate: Deactivate my account
+        save: Save Changes
+        account: Account
+        first_name: First Name
+        last_name: Last Name
+        birth_date: Date of Birth
+        city: City
+        email: Email Address
+        password: Password
+        confirm_password: Confirm Password
+        male: Male
+        female: Female
+        other: Other
+        gender: Gender
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -46,6 +83,12 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
     sessions:
+      new:
+        log_in: Log In
+        email: Email Address
+        password: Password
+        remember_me: Remember Me
+        to_log_in: Log In
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."

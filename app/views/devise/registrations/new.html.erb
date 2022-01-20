@@ -1,45 +1,45 @@
 <div class="row">
   <div class="col-lg-4 col-md-6 ml-auto mr-auto mx-auto">
-    <h1 class="text-center">Sign Up</h1>
+    <h1 class="text-center"><%= t('.sign_up') %></h1>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render partial: 'devise/shared/error_messages', resource: resource %>
 
       <div class="row g-3 mb-3">
         <div class="col">
-          <%= f.text_field :first_name, class: "form-control", placeholder: "First name", required: 'required' %>
+          <%= f.text_field :first_name, class: "form-control", placeholder: t('.first_name'), required: 'required' %>
         </div>
 
         <div class="col">
-          <%= f.text_field :last_name, class: "form-control", placeholder: "Last name", required: 'required' %>
+          <%= f.text_field :last_name, class: "form-control", placeholder: t('.last_name'), required: 'required' %>
         </div>
         <div class='col'>
-          <%= f.select :gender, ["Male", "Female", "Other"], {},  class: "form-control", placeholder: 'Gender', required: 'required' %>
+          <%= f.select :gender, [[t('.male'),'M'], [t('.female'),'F'], [t('.other'),'O']], {},  class: "form-control", placeholder: t('.gender'), required: 'required' %>
         </div>
       </div>
 
       <div class="mb-3">
-        <%= f.text_field :city, class: "form-control mb-3", placeholder: "City", required: 'required' %>
+        <%= f.text_field :city, class: "form-control mb-3", placeholder: t('.city'), required: 'required' %>
       </div>
 
       <div class="mb-3">
-        <%= f.email_field :email, autofocus: false, class: 'form-control', placeholder: "Email Address", required: 'required' %>
+        <%= f.email_field :email, autofocus: false, class: 'form-control', placeholder: t('.email'), required: 'required' %>
       </div>
 
       <div class="mb-3">
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password', required: 'required' %>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: t('.password'), required: 'required' %>
       </div>
 
       <div class="mb-3">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password', required: 'required' %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: t('.confirm_password'), required: 'required' %>
       </div>
 
       <div class="mb-3">
-        <%= f.date_field :birth_date, class: 'form-control', placeholder: 'Date of Birth', required: 'required' %>
+        <%= f.date_field :birth_date, class: 'form-control', placeholder: t('birth_date'), required: 'required' %>
       </div>
 
       <div class="mb-3 d-grid">
-        <%= f.submit "Sign up", class: "btn btn-primary btn-lg" %>
+        <%= f.submit t('.to_sign_up'), class: "btn btn-primary btn-lg" %>
       </div>
     <% end %>
 

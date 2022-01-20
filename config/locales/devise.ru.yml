@@ -1,0 +1,47 @@
+ru:
+  devise:
+    shared:
+      links:
+        log_in: Вход
+        sign_up: Регистрация
+        forgot_password: Забыл пароль
+        sign_up_google: Войти через Google
+    sessions:
+      new:
+        log_in: Вход
+        email: Е-мейл
+        password: Пароль
+        remember_me: Запомнить
+        to_log_in: Войти
+    registrations:
+      new:
+        sign_up: Регистрация
+        first_name: Имя
+        last_name: Фамилия
+        birth_date: Дата рождения
+        city: Город
+        email: Е-Мейл
+        password: Пароль
+        confirm_password: Подтверждение Пароля
+        male: Мужской
+        female: Женский
+        other: Другое
+        gender: Пол
+        to_sign_up: Зарегистрироваться 
+      edit:
+        leave_blank: Не заполняйте если не хотите сменить 
+        are_you_sure: Вы уверены ? Это действие нельзя отменить
+        deactivate: Удалить мой аккаунт
+        save: Сохранить
+        account: Аккаунт
+        first_name: Имя
+        last_name: Фамилия
+        birth_date: Дата рождения
+        city: Город
+        email: Е-Мейл
+        password: Пароль
+        confirm_password: Подтверждение Пароля
+        male: Мужской
+        female: Женский
+        other: Другое
+        gender: Пол

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-4 col-md-6 ml-auto mr-auto mx-auto">
-    <h1 class="text-center">Account</h1>
+    <h1 class="text-center"><%= t('.account') %></h1>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render partial: 'devise/shared/error_messages', resource: resource %>
@@ -12,16 +12,16 @@
           <%end%>
         </div>
         <div class="col">
-          <%= f.text_field :first_name, class: "form-control mb-3", placeholder: "First name", required: 'required' %>
-          <%= f.text_field :last_name, class: "form-control mb-3", placeholder: "Last name", required: 'required' %>
-          <%= f.date_field :birth_date, class: 'form-control mb-3', placeholder: 'Date of Birth', required: 'required' %>
-          <%= f.text_field :city, class: "form-control mb-3", placeholder: "City", required: 'required' %>
+          <%= f.text_field :first_name, class: "form-control mb-3", placeholder: t('.first_name'), required: 'required' %>
+          <%= f.text_field :last_name, class: "form-control mb-3", placeholder: t('.last_name'), required: 'required' %>
+          <%= f.date_field :birth_date, class: 'form-control mb-3', placeholder: t('.birth_date'), required: 'required' %>
+          <%= f.text_field :city, class: "form-control mb-3", placeholder: t('.city'), required: 'required' %>
           <%= f.file_field :avatar, class: 'form-control' %>
         </div>
       </div>
 
       <div class="mb-3">
-        <%= f.email_field :email, class: 'form-control', placeholder: 'Email Address' %>
+        <%= f.email_field :email, class: 'form-control', placeholder: t('.email') %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -29,20 +29,20 @@
       <% end %>
 
       <div class="mb-3">
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password'  %>
-        <p class="form-text text-muted"><small>Leave password blank if you don't want to change it</small></p>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: t('.password')  %>
+        <p class="form-text text-muted"><small><%= t('.leave_blank') %></small></p>
       </div>
 
       <div class="mb-3">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password'  %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: t('.confirm_password')  %>
       </div>
 
       <div class="mb-3 d-grid">
-        <%= f.submit "Save Changes", class: 'btn btn-lg btn-primary' %>
+        <%= f.submit t('.save'), class: 'btn btn-lg btn-primary' %>
       </div>
     <% end %>
     <hr>
 
-    <p class="text-center"><%= link_to "Deactivate my account", registration_path(resource_name), data: { confirm: "Are you sure? You cannot undo this." }, method: :delete %></p>
+    <p class="text-center"><%= link_to t('.deactivate'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
   </div>
 </div>

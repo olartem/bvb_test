@@ -29,7 +29,7 @@
                   <p><%= link_to t('.sign_out'), destroy_user_session_path, class: 'text-white', method: :delete %></p>
                 <% end %>
             <%else%>
-              <p><%= link_to t('.create_accout'), new_user_registration_path, class: 'text-white' %></p>
+              <p><%= link_to t('.create_account'), new_user_registration_path, class: 'text-white' %></p>
               <p><%= link_to t('.sign_in'), new_user_session_path, class: 'text-white' %></p>
             <%end%>
           </ul> 
