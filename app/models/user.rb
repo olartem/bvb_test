@@ -11,7 +11,11 @@ class User < ApplicationRecord
   has_many :donations, dependent: :destroy
   has_one :location, dependent: :destroy
   after_create :add_location
+  after_update :update_location
   
+  def update_location
+    self.location.update_attribute(:city, self.city)
+  end
   def active_for_authentication?
     super && !is_deleted
   end
@@ -30,17 +34,13 @@ class User < ApplicationRecord
     data = access_token.info
     user = User.where(email: data['email']).first
 
-    # Не зовсім правильно, але щось краще я не зміг придумати
+    
     unless user
-        user = User.create(first_name: data['first_name'],
+        user = User.new(first_name: data['first_name'],
           email: data['email'],
           last_name: data['last_name'],
-          birth_date: Time.now - 18.years,
-          city: 'City',
-          gender: 'TBD',
-          password: Devise.friendly_token[0, 20]
         )
     end
     user
-end
+  end
 end
