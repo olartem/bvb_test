@@ -20,6 +20,10 @@ rails webpacker:install
 ```
 5.
 ```bash
+yarn install
+```
+6.
+```bash
 rails s
 ```
 ## Default Admin
