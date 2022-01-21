@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
     
     root 'home#index'
-    devise_for :users, skip: :omniauth_callbacks
+    devise_for :users, skip: :omniauth_callbacks, controllers: { registrations: 'users/registrations' }
     resources :projects, only: :show do
       resources :donations, only: :create
     end
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get '/donations', to: 'users#donations', as: :donations
     end
   end
-  devise_for :users, skip: [:session, :password, :registration], controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, skip: [:session, :password, :registration], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   namespace :admin do
     resources :users do
       delete :avatar, on: :member, action: :destroy_avatar

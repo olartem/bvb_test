@@ -95,7 +95,7 @@ ru:
       header:
         about: Описание
         description: Описание
-        signed_up_as: Зарегистрировано как
+        signed_up_as: "Зарегистрировано как "
         my_profile: Мой Профиль
         my_donations: Мои Пожертвования
         sign_out: Выйти
