@@ -14,7 +14,9 @@ class User < ApplicationRecord
   after_update :update_location
   
   def update_location
-    self.location.update_attribute(:city, self.city)
+    if self.city
+      self.location.update_attribute(:city, self.city)
+    end
   end
   def active_for_authentication?
     super && !is_deleted
