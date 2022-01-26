@@ -15,7 +15,11 @@ class User < ApplicationRecord
   
   def update_location
     if self.city
-      self.location.update_attribute(:city, self.city)
+      if self.location
+        self.location.update_attribute(:city, self.city)
+      else
+        Location.create(user: self, city: self.city)
+      end
     end
   end
   def active_for_authentication?
