@@ -95,7 +95,7 @@ en:
       header:
         about: About
         description: Description
-        signed_up_as: Signed up as
+        signed_up_as: "Signed up as "
         my_profile: My Profile
         my_donations: My Donations
         sign_out: Sign Out

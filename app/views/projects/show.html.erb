@@ -51,7 +51,7 @@
                                 <span><%= @project.description.capitalize %></span>
                                 <hr class="m-0 pt-1 mt-2">
                             </div>
-                            <%= line_chart @project.donations.group_by_day(:created_at).count %>
+                            <%= line_chart @project.donations.where("confirmation_status = 'true'").group_by_day(:created_at).count %>
                             <h5 class="mt-3"><%=t('.our_donators')%></h5>
                             <p>
                                 <div id="map"></div>
