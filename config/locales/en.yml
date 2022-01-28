@@ -93,7 +93,7 @@ en:
         donate: Donate
   layouts:
       header:
-        about: about
+        about: About
         description: Description
         signed_up_as: Signed up as
         my_profile: My Profile

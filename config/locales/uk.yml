@@ -1,0 +1,79 @@
+uk:
+  helpers:
+    label:
+      donation:
+        user: користувач
+        project: проект
+      project:
+        donations: внесок
+      user:
+        donations: внески
+      "true": "Так"
+      "false": "Ні"
+  activerecord:
+    models:
+      donation: Внесок
+      project: Проект
+      user: Користувач
+      location: Локація
+    attributes:
+      user:
+        email: Е-мейл
+        first_name: Ім'я
+        last_name: Прізвище
+        city: Місто
+        birth_date: Дата народження
+        gender: Стать
+        is_admin: Адмін ?
+        is_deleted: Видалено ?
+      project:
+        name: Назва
+        money_goal: Ціль
+        current_money: Поточні збори
+        description: Опис
+        end_date: Дата кінця
+        is_deleted: Видалено ?
+      donation:
+        amount: Кількість
+        confirmation_status: Статус підтвердження
+        is_deleted: Видалено ?
+        user_id: Користувач
+        project_id: Проект
+  users:
+      donations:
+        project: Проект
+        amount: Кількість
+        date: Дата
+        confirmation_status: Статус підтвердження
+        confirmed: Підтверджено
+        unconfirmed: Не підтверджено
+  projects:
+      show:
+        goal: Ціль
+        start: Старт
+        end: Кінець
+        left: Залишилось
+        current: Поточні збори
+        success: Готово!
+        project_details: Деталі проекту
+        our_donators: Наші внески
+        donation: Внесок
+        amount: Кількість
+        donate: Пожертвувати
+  layouts:
+      header:
+        about: Опис
+        description: Опис
+        signed_up_as: "Ввійшов як "
+        my_profile: Мій профіль
+        my_donations: Мої внески
+        sign_out: Вийти
+        sign_in: Ввійти
+        admin_dashboard: Панель Адміна
+        create_account: Створити акаунт
+        home: Головна
+  home:
+      index:
+        charity_projects: Благодійні Проекти
+        description: Опис
+        view: Деталі
