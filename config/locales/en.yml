@@ -108,3 +108,8 @@ en:
         charity_projects: Charity Projects
         description: Description
         view: View
+        all: All
+        active: Active
+        finished: Finished
+      projects:
+        view: View

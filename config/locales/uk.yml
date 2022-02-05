@@ -77,3 +77,8 @@ uk:
         charity_projects: Благодійні Проекти
         description: Опис
         view: Деталі
+        all: Всі
+        active: Активні
+        finished: Завершені
+      projects:
+        view: Деталі

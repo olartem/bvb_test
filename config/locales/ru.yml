@@ -108,3 +108,8 @@ ru:
         charity_projects: Благотворительные проекты
         description: Описание
         view: Детали
+        all: Все 
+        active: Активные 
+        finished: Законченные
+      projects:
+        view: Детали
