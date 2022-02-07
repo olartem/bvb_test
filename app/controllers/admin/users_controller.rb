@@ -1,5 +1,6 @@
 module Admin
   class UsersController < Admin::ApplicationController
+    prepend AdministrateRansack::Searchable
 
     def destroy_avatar
       avatar = requested_resource.avatar
@@ -16,6 +17,17 @@ module Admin
       user.update_attribute(:is_deleted, true)
     end
 
+    def export_table
+      @users = User.all
+      respond_to do |format|
+        format.pdf do
+          render pdf: 'Users', template: 'admin/application/users/export_pdf.html.erb', encoding: 'utf8'
+        end
+        format.xlsx {
+          render xlsx: 'Users', template: 'admin/application/users/export_excel.xlsx.axlsx'
+        }
+      end
+    end
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #

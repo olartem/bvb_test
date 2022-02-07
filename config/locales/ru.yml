@@ -30,8 +30,16 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ru:
+  administrate_ransack:
+    filters:
+      birth_date: Дата Рождения От/До
+      search: Поиск
+      clear_filters: Сбросить фильтры
+      end_date: Дата Конца От/До
   helpers:
     label:
+      export_excel: "Експортировать %{resource} в excel"
+      export_pdf: "Експортировать %{resource} в pdf"
       donation:
         user: Пользователь
         project: Проект

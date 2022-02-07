@@ -1,8 +1,7 @@
 module Admin
   class DonationsController < Admin::ApplicationController
-    # Overwrite any of the RESTful controller actions to implement custom behavior
-    # For example, you may want to send an email after a foo is updated.
-    #
+    prepend AdministrateRansack::Searchable
+
     def update
       super
       donation = Donation.find(params[:id])
@@ -24,6 +23,17 @@ module Admin
       redirect_to admin_donations_path
     end
 
+    def export_table
+      @donations = Donation.all
+      respond_to do |format|
+        format.pdf do
+          render pdf: 'Donations', template: 'admin/application/donations/export_pdf.html.erb', encoding: 'utf8'
+        end
+        format.xlsx {
+          render xlsx: 'Donations', template: 'admin/application/donations/export_excel.xlsx.axlsx'
+        }
+      end
+    end
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
     # actions.

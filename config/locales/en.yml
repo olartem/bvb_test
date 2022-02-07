@@ -30,15 +30,23 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  administrate_ransack:
+    filters:
+      birth_date: Birth Date From/To
+      search: Search
+      clear_filters: Clear Filters
+      end_date: End Date From/To
   helpers:
     label:
+      export_excel: "Export %{resource} as excel file"
+      export_pdf: "Export %{resource} as pdf file"
       donation:
-        user: user
-        project: project
+        user: User
+        project: Project
       project:
-        donations: donations
+        donations: Donations
       user:
-        donations: donations
+        donations: Donations
       "true": "true"
       "false": "false"
   activerecord:

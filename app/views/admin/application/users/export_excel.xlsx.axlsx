@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Users") do |sheet|
+  sheet.add_row [User.human_attribute_name("first_name"), User.human_attribute_name("last_name"),
+                User.human_attribute_name("birth_date"), User.human_attribute_name("city"),
+                User.human_attribute_name("is_admin"), User.human_attribute_name("is_deleted")]
+  
+  @users.each do |user|
+    sheet.add_row [user.first_name, user.last_name, user.birth_date, user.city, user.is_admin, user.is_deleted]
+  end
+end

@@ -13,6 +13,10 @@ class User < ApplicationRecord
   after_create :add_location
   after_update :update_location
   
+  def admin_label
+    (first_name+" "+last_name).upcase
+  end
+
   def update_location
     if self.city
       if self.location

@@ -1,6 +1,7 @@
 module Admin
   class ProjectsController < Admin::ApplicationController
-
+    prepend AdministrateRansack::Searchable
+    
     def destroy_avatar
       image = requested_resource.images.find(params[:attachment_id])
       image.purge
@@ -14,6 +15,18 @@ module Admin
     def destroy
       project = Project.find(params[:id])
       project.update_attribute(:is_deleted, true)
+    end
+
+    def export_table
+      @projects = Project.all
+      respond_to do |format|
+        format.pdf do
+          render pdf: 'Projects', template: 'admin/application/projects/export_pdf.html.erb', encoding: 'utf8'
+        end
+        format.xlsx {
+          render xlsx: 'Projects', template: 'admin/application/projects/export_excel.xlsx.axlsx'
+        }
+      end
     end
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.

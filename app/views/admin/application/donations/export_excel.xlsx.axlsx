@@ -1,0 +1,12 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Donations") do |sheet|
+  sheet.add_row [Donation.human_attribute_name("user"), Donation.human_attribute_name("project"),
+                Donation.human_attribute_name("amount"), Donation.human_attribute_name("confirmation_status"),
+                Donation.human_attribute_name("is_deleted")]
+  
+  @donations.each do |donation|
+    sheet.add_row [donation.user.first_name + ' ' + donation.user.last_name, donation.project.name, donation.amount,
+                  donation.confirmation_status, donation.is_deleted]
+  end
+end

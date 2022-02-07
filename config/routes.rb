@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     namespace :admin do
       resources :users do
+        get 'export_table', on: :collection
         delete :avatar, on: :member, action: :destroy_avatar
       end
-      resources :donations
+      resources :donations do
+        get 'export_table', on: :collection
+      end
       resources :projects do
+        get 'export_table', on: :collection
         delete :images, on: :member, action: :destroy_avatar
       end
 

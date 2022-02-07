@@ -1,0 +1,25 @@
+<h2><%= Project.model_name.human %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= Project.human_attribute_name("name") %></th>
+      <th scope="col"><%= Project.human_attribute_name("money_goal") %></th>
+      <th scope="col"><%= Project.human_attribute_name("current_money") %></th>
+      <th scope="col"><%= Project.human_attribute_name("end_date") %></th>
+      <th scope="col"><%= Project.human_attribute_name("is_deleted") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.money_goal %></td>
+        <td><%= project.current_money %></td>
+        <td><%= project.end_date %></td>
+        <td><%= project.is_deleted %></td>
+        <td></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

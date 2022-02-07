@@ -1,9 +1,17 @@
 uk:
+  administrate_ransack:
+    filters:
+      birth_date: Дата Народження Від/До
+      search: Пошук
+      clear_filters: Скинути фільтри
+      end_date: Дата Кінця Від/До
   helpers:
     label:
+      export_excel: "Експортувати %{resource} в excel"
+      export_pdf: "Експортувати %{resource} в pdf"
       donation:
-        user: користувач
-        project: проект
+        user: Користувач
+        project: Проект
       project:
         donations: внесок
       user:

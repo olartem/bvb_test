@@ -1,6 +1,8 @@
 class DonationsController < ApplicationController
-  before_action :find_project, :authenticate_user!
+  before_action :find_project, except: :index
+  before_action :authenticate_user!
   before_action :find_donation, only: [:destroy]
+
   def create
     @donation = current_user.donations.build(donation_params)
     @donation.project = @project

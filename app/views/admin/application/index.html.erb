@@ -22,6 +22,7 @@ It renders the `_table` partial to display details about the resources.
 
 [1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Collection
 %>
+<%= stylesheet_link_tag 'admin_index' %>
 
 <% content_for(:title) do %>
   <%= display_resource_name(page.resource_name) %>
@@ -31,15 +32,11 @@ It renders the `_table` partial to display details about the resources.
   <h1 class="main-content__page-title" id="page-title">
     <%= content_for(:title) %>
   </h1>
-
-  <% if show_search_bar %>
-    <%= render(
-      "search",
-      search_term: search_term,
-      resource_name: display_resource_name(page.resource_name)
-    ) %>
-  <% end %>
-
+  <%= link_to t("helpers.label.export_excel", resource: resources.klass.model_name.human.downcase),
+                polymorphic_path([:export_table, namespace, resources.klass], format: :xlsx), style: 'margin: 10px;' %>
+  <%= link_to t("helpers.label.export_pdf", resource: resources.klass.model_name.human.downcase),
+                polymorphic_path([:export_table, namespace, resources.klass], format: :pdf), style: 'margin: 10px;' %>
+                
   <div>
     <%= link_to(
       t(
@@ -64,3 +61,12 @@ It renders the `_table` partial to display details about the resources.
 
   <%= paginate resources, param_name: '_page' %>
 </section>
+<%
+attribute_labels = {
+  user: t('helpers.label.donation.user'),
+  project: t('helpers.label.donation.project'),
+  birth_date: t('administrate_ransack.filters.birth_date'),
+  end_date: t('administrate_ransack.filters.end_date')
+}
+%>
+<%= render('administrate_ransack/filters', attribute_labels: attribute_labels) %>
