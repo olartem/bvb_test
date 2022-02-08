@@ -38,8 +38,8 @@ ru:
       end_date: Дата Конца От/До
   helpers:
     label:
-      export_excel: "Експортировать %{resource} в excel"
-      export_pdf: "Експортировать %{resource} в pdf"
+      export_excel: "Експортировать в excel"
+      export_pdf: "Експортировать в pdf"
       donation:
         user: Пользователь
         project: Проект
@@ -51,9 +51,9 @@ ru:
       "false": "Нет"
   activerecord:
     models:
-      donation: 'Пожертвование'
-      project: 'Проект'
-      user: 'Пользователь'
+      donation: 'Пожертвования'
+      project: 'Проекты'
+      user: 'Пользователи'
       location: 'Локация'
     attributes:
       user:

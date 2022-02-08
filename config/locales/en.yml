@@ -38,8 +38,8 @@ en:
       end_date: End Date From/To
   helpers:
     label:
-      export_excel: "Export %{resource} as excel file"
-      export_pdf: "Export %{resource} as pdf file"
+      export_excel: "Export as excel file"
+      export_pdf: "Export as pdf file"
       donation:
         user: User
         project: Project
@@ -51,9 +51,9 @@ en:
       "false": "false"
   activerecord:
     models:
-      donation: Donation
-      project: Project
-      user: User
+      donation: Donations
+      project: Projects
+      user: Users
       location: Location
     attributes:
       user:

@@ -7,22 +7,22 @@ uk:
       end_date: Дата Кінця Від/До
   helpers:
     label:
-      export_excel: "Експортувати %{resource} в excel"
-      export_pdf: "Експортувати %{resource} в pdf"
+      export_excel: "Експортувати в excel"
+      export_pdf: "Експортувати в pdf"
       donation:
         user: Користувач
         project: Проект
       project:
-        donations: внесок
+        donations: внески
       user:
         donations: внески
       "true": "Так"
       "false": "Ні"
   activerecord:
     models:
-      donation: Внесок
-      project: Проект
-      user: Користувач
+      donation: Внесоки
+      project: Проекти
+      user: Користувачі
       location: Локація
     attributes:
       user:
