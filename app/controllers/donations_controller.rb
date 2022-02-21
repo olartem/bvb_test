@@ -7,6 +7,7 @@ class DonationsController < ApplicationController
     @donation = current_user.donations.build(donation_params)
     @donation.project = @project
     if @donation.save
+      AdminMailer.with(donation: @donation).new_donation.deliver
       flash[:notice] = 'Donated successfully. Wait for confirmation'
       redirect_to project_path(@project)
     else

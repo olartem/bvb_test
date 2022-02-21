@@ -1,0 +1,10 @@
+section.py-5.text-center.container
+  .row.py-lg-5
+    .col-lg-6.col-md-8.mx-auto
+      h1.fw-light= t('.charity_projects')
+      p.lead.text-muted= t('.description')
+      p
+        = link_to t('.all'), root_path(sort: 'all'), class: 'btn btn-outline-secondary my-2', remote: true
+        = link_to t('.active'), root_path(sort: 'active'), class: 'btn btn-outline-secondary my-2', remote: true
+        = link_to t('.finished'), root_path(sort: 'finished'), class: 'btn btn-outline-secondary my-2', remote: true
+#projects= render 'projects'

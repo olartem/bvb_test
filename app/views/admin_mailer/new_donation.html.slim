@@ -1,0 +1,9 @@
+body
+  p= t '.new_donation'
+  p= t '.donation_details'
+  p --------------------
+  p= Donation.human_attribute_name('user_id') + ': ' + @donation.user.first_name + ' ' + @donation.user.last_name
+  p= Donation.human_attribute_name('project_id') + ': ' + @donation.project.name
+  p= Donation.human_attribute_name('amount') + ': ' + @donation.amount.to_s
+  p= t 'donation_link'
+  p= edit_admin_donation_url(id: @donation.id)

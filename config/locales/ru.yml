@@ -121,3 +121,11 @@ ru:
         finished: Законченные
       projects:
         view: Детали
+  admin_mailer:
+    new_donation:
+      new_donation: "Новое пожертвование ожидает подтверждения"
+      donation_details: "Детали Пожертвования"
+    new_registration:
+      new_user: "Новый пользователь зарегистрирован"
+      user_details: "Детали Пользователя"
+  donation_link: "Ссылка на подтверждение пожертвования:"

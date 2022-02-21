@@ -1,0 +1,33 @@
+#navbarHeader.collapse.bg-dark
+  .container
+    .row
+      .col-sm-8.col-md-7.py-4
+        h4.text-white= t('.about')
+        p.text-muted= t('.description')
+      .col-sm-4.offset-md-1.py-4
+        .dropdown
+          button#dropdownMenuButton2.btn.btn-outline-light.btn-sm.dropdown-toggle aria-expanded="false" data-bs-toggle="dropdown" type="button"
+            = I18n.locale.capitalize
+          ul.dropdown-menu.dropdown-menu-dark aria-labelledby="dropdownMenuButton2"
+            li= link_to 'English', root_path(locale: :en), class: 'dropdown-item'
+            li= link_to 'Русский', root_path(locale: :ru), class: 'dropdown-item'
+            li= link_to 'Українська', root_path(locale: :uk), class: 'dropdown-item'
+        ul.list-unstyled
+          - if current_user
+            - if !current_user.is_admin
+              p.text-white
+                = t('.signed_up_as') + current_user.first_name + " " + current_user.last_name
+              p= link_to t('.my_profile'), edit_user_registration_path, class: 'text-white'
+              p= link_to t('.my_donations'), user_donations_path(current_user), class: 'text-white'
+              p= link_to t('.sign_out'), destroy_user_session_path, class: 'text-white', method: :delete
+            - if current_user.is_admin
+              = link_to t('.admin_dashboard'), admin_users_path, class: 'text-white'
+              p= link_to t('.sign_out'), destroy_user_session_path, class: 'text-white', method: :delete
+          - else
+            p= link_to t('.create_account'), new_user_registration_path, class: 'text-white'
+            p= link_to t('.sign_in'), new_user_session_path, class: 'text-white'
+.navbar.navbar-dark.bg-dark.shadow-sm
+  .container
+    = link_to t('.home'), root_path, class: 'navbar-brand d-flex align-items-center'
+    button.navbar-toggler aria-controls="navbarHeader" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarHeader" data-bs-toggle="collapse" type="button"
+      span.navbar-toggler-icon

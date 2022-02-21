@@ -10,13 +10,15 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create
   has_many :donations, dependent: :destroy
   has_one :location, dependent: :destroy
-  after_create :add_location
+  after_create :add_location, :send_admin_mail
   after_update :update_location
   
   def admin_label
     (first_name+" "+last_name).upcase
   end
-
+  def send_admin_mail
+    AdminMailer.with(user: self).new_registration.deliver
+  end
   def update_location
     if self.city
       if self.location

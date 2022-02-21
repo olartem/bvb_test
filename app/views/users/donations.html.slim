@@ -1,0 +1,20 @@
+h2 My Donations
+table.table
+  thead
+    tr
+      th scope="col" = t('.project')
+      th scope="col" = t('.amount')
+      th scope="col" = t('.date')
+      th scope="col" = t('.confirmation_status')
+  tbody
+    - current_user.donations.each do |donation|
+      - project = Project.find(donation.project_id)
+      tr
+        td= link_to "# project.name ", project_path(project), class: 'text-black'
+        td= donation.amount
+        td= l donation.created_at, format: :short
+        td
+          - if donation.confirmation_status
+            = t('.confirmed')
+          - else
+            = t('.unconfirmed')

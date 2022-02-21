@@ -1,0 +1,10 @@
+body
+  p= t '.new_user'
+  p= t '.user_details'
+  p --------------------
+  p= User.human_attribute_name('email') + ': ' + @user.email
+  p= User.human_attribute_name('first_name') + ': ' + @user.first_name
+  p= User.human_attribute_name('last_name') + ': ' + @user.last_name
+  p= User.human_attribute_name('gender') + ': ' + @user.gender
+  p= User.human_attribute_name('city') + ': ' + @user.city
+  p= User.human_attribute_name('birth_date') + ': ' + @user.birth_date.to_formatted_s(:short)

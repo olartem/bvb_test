@@ -11,7 +11,7 @@ module Admin
 
     def authenticate_admin
       authenticate_user!
-      redirect_to home_index_path, alert: 'You are not an admin' unless current_user.is_admin?
+      redirect_to root_path, alert: 'You are not an admin' unless current_user.is_admin?
     end
 
     private

@@ -121,3 +121,11 @@ en:
         finished: Finished
       projects:
         view: View
+  admin_mailer:
+    new_donation:
+      new_donation: "You have new donation waiting for approve"
+      donation_details: "Donation Details"
+    new_registration:
+      new_user: "New registered user"
+      user_details: "User Details"
+  donation_link: "Link to donation approve:"

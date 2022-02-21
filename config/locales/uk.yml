@@ -90,3 +90,11 @@ uk:
         finished: Завершені
       projects:
         view: Деталі
+  admin_mailer:
+    new_donation:
+      new_donation: "Новий внесок очікує підтвердження"
+      donation_details: "Деталі Внеску"
+    new_registration:
+      new_user: "Новий користувач зареєструвався"
+      user_details: "Деталі Користувача"
+  donation_link: "Посилання на підтвердження внеску:"
