@@ -119,6 +119,7 @@ en:
         all: All
         active: Active
         finished: Finished
+        search: "Search"
       projects:
         view: View
   admin_mailer:

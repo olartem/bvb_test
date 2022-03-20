@@ -3,6 +3,12 @@ class ProjectsController < ApplicationController
     @user = current_user
     @project = Project.find(params[:id])
     @markers = project_markers(@project)
+    @qrcode = RQRCode::QRCode.new(project_url(@project))
+    @svg = @qrcode.as_svg(
+      color: "000",
+      module_size: 11,
+      use_path: true
+    )
   end
 
   def project_markers(project)

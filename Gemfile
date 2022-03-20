@@ -48,6 +48,7 @@ gem 'caxlsx_rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem "slim-rails"
+gem "rqrcode"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

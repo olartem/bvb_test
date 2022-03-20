@@ -88,6 +88,7 @@ uk:
         all: Всі
         active: Активні
         finished: Завершені
+        search: "Пошук"
       projects:
         view: Деталі
   admin_mailer:

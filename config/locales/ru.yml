@@ -119,6 +119,7 @@ ru:
         all: Все 
         active: Активные 
         finished: Законченные
+        search: "Поиск"
       projects:
         view: Детали
   admin_mailer:

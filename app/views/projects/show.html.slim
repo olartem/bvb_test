@@ -9,6 +9,7 @@
             - (0...@project.images.count - 1).each { |i|
             = image_tag(@project.images[i])
             - }
+        = @svg.html_safe
       .col-lg-8
         .right-side-pro-detail.border.p-3.m-0
           .row
@@ -42,11 +43,11 @@
                   p.m-0.p-0
                     = t('.end') + ' '
                     = l @project.end_date, format: :long
-              hr.p-0.m-0/
+              hr.p-0.m-0
             .col-lg-12.pt-2.mb-5
               h5= t('.project_details')
               span= @project.description.capitalize
-              hr.m-0.pt-1.mt-2/
+              hr.m-0.pt-1.mt-2
             = line_chart @project.donations.where("confirmation_status = 'true'").group_by_day(:created_at).count
             h5.mt-3= t('.our_donators')
             p
