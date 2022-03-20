@@ -1,6 +1,6 @@
 = stylesheet_link_tag 'project'
 .container
-  .col-lg-8.border.p-3.main-section.bg-white
+  .col-lg-8.col-md-10.col-12.border.p-3.main-section.bg-white
     .row.m-0
       .col-lg-4.left-side-product-box.pb-3
         - if @project.images.attached?
@@ -9,8 +9,10 @@
             - (0...@project.images.count - 1).each { |i|
             = image_tag(@project.images[i])
             - }
-        = @svg.html_safe
-      .col-lg-8
+        .my-2
+          = @svg.html_safe
+        = link_to t('.download_qrcode'), project_path(@project, format: :png), class: 'btn btn-outline-dark'
+      .col-lg-8.col-12
         .right-side-pro-detail.border.p-3.m-0
           .row
             .col-lg-12

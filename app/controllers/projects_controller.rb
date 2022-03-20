@@ -6,9 +6,15 @@ class ProjectsController < ApplicationController
     @qrcode = RQRCode::QRCode.new(project_url(@project))
     @svg = @qrcode.as_svg(
       color: "000",
-      module_size: 11,
-      use_path: true
+      module_size: 5,
+      use_path: true,
     )
+    respond_to do |format|
+      format.html
+      format.png do
+        download_qrcode(@project)
+      end
+    end
   end
 
   def project_markers(project)
@@ -24,5 +30,9 @@ class ProjectsController < ApplicationController
       end
     end
     markers
+  end
+
+  def download_qrcode(project)
+    send_data RQRCode::QRCode.new(project_url(project)).as_png(size: 300), type: 'image/png', disposition: 'attachment'
   end
 end

@@ -99,6 +99,7 @@ ru:
         donation: Пожертвование
         amount: Сумма
         donate: Пожертвовать
+        download_qrcode: "Скачать"
   layouts:
       header:
         about: Описание

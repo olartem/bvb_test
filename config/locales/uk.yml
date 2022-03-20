@@ -68,6 +68,7 @@ uk:
         donation: Внесок
         amount: Кількість
         donate: Пожертвувати
+        download_qrcode: "Завантажити"
   layouts:
       header:
         about: Опис

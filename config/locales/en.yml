@@ -99,6 +99,7 @@ en:
         donation: Donation
         amount: Amount
         donate: Donate
+        download_qrcode: "Download"
   layouts:
       header:
         about: About
