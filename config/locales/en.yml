@@ -121,6 +121,7 @@ en:
         active: Active
         finished: Finished
         search: "Search"
+        meta_description: "Donates for charity"
       projects:
         view: View
   admin_mailer:

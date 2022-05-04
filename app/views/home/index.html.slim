@@ -1,3 +1,18 @@
+head
+  /! Primary Meta Tags
+  title =t('.charity_projects')
+  meta content= t('.charity_projects') name = "title"
+  meta content= t('.meta_description') name = "description"
+  /! Open Graph / Facebook
+  meta content="website" property="og:type"
+  meta content= root_url property="og:url"
+  meta content= t('.charity_projects') property = "og:title"
+  meta content= t('.meta_description') property = "og:description"
+  /! Twitter
+  meta content="summary_large_image" property="twitter:card"
+  meta content= root_url property="twitter:url"
+  meta content= t('.charity_projects')
+  meta content= t('.meta_description') property = "twitter:description"
 section.py-5.text-center.container
   .row.py-lg-5
     .col-lg-6.col-md-8.mx-auto

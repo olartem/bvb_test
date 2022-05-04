@@ -121,6 +121,7 @@ ru:
         active: Активные 
         finished: Законченные
         search: "Поиск"
+        meta_description: "Пожертвования на благотворительность"
       projects:
         view: Детали
   admin_mailer:

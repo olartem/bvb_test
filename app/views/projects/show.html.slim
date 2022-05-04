@@ -1,3 +1,22 @@
+head
+  /! Primary Meta Tags
+  title =@project.name.capitalize
+  meta content= @project.name.capitalize name = "title"
+  meta content= @project.description.capitalize name = "description"
+  /! Open Graph / Facebook
+  meta content="website" property="og:type"
+  meta content= project_url(@project) property="og:url"
+  meta content= @project.name.capitalize property = "og:title"
+  meta content= @project.description.capitalize property = "og:description"
+  - if @project.images.attached?
+    meta content= url(@project.images.last) property="og:image"
+  /! Twitter
+  meta content="summary_large_image" property="twitter:card"
+  meta content= project_url(@project) property="twitter:url"
+  meta content= @project.name.capitalize
+  meta content= @project.description.capitalize property = "twitter:description"
+  - if @project.images.attached?
+    meta content= url(@project.images.last) property="og:image"
 = stylesheet_link_tag 'project'
 .container
   .col-lg-8.col-md-10.col-12.border.p-3.main-section.bg-white

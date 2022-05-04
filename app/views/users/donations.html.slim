@@ -1,3 +1,18 @@
+head
+  /! Primary Meta Tags
+  title "My Donations"
+  meta content= "My Donations" name = "title"
+  meta content= "Your donations list" name = "description"
+  /! Open Graph / Facebook
+  meta content="website" property="og:type"
+  meta content= user_donations_url(@user) property="og:url"
+  meta content= "My Donations" property = "og:title"
+  meta content= "Your donations list" property = "og:description"
+  /! Twitter
+  meta content="summary_large_image" property="twitter:card"
+  meta content= user_donations_url(@user) property="twitter:url"
+  meta content= "My Donations"
+  meta content= "Your donations list" property = "twitter:description"
 h2 My Donations
 table.table
   thead

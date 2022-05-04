@@ -90,6 +90,7 @@ uk:
         active: Активні
         finished: Завершені
         search: "Пошук"
+        meta_description: "Пожертвування на благодійність"
       projects:
         view: Деталі
   admin_mailer:
