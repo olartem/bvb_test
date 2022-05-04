@@ -8,11 +8,13 @@ head
   meta content= user_donations_url(@user) property="og:url"
   meta content= "My Donations" property = "og:title"
   meta content= "Your donations list" property = "og:description"
+  meta content= url_for(asset_path('favicon_patrick.png')) property="og:image"
   /! Twitter
   meta content="summary_large_image" property="twitter:card"
   meta content= user_donations_url(@user) property="twitter:url"
   meta content= "My Donations"
   meta content= "Your donations list" property = "twitter:description"
+  meta content= url_for(asset_path('favicon_patrick.png')) property="twitter:image"
 h2 My Donations
 table.table
   thead

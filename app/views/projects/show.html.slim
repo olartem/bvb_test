@@ -9,14 +9,14 @@ head
   meta content= @project.name.capitalize property = "og:title"
   meta content= @project.description.capitalize property = "og:description"
   - if @project.images.attached?
-    meta content= url(@project.images.last) property="og:image"
+    meta content= url_for(@project.images.last) property="og:image"
   /! Twitter
   meta content="summary_large_image" property="twitter:card"
   meta content= project_url(@project) property="twitter:url"
   meta content= @project.name.capitalize
   meta content= @project.description.capitalize property = "twitter:description"
   - if @project.images.attached?
-    meta content= url(@project.images.last) property="og:image"
+    meta content= url_for(@project.images.last) property="twitter:image"
 = stylesheet_link_tag 'project'
 .container
   .col-lg-8.col-md-10.col-12.border.p-3.main-section.bg-white

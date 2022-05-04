@@ -8,11 +8,13 @@ head
   meta content= root_url property="og:url"
   meta content= t('.charity_projects') property = "og:title"
   meta content= t('.meta_description') property = "og:description"
+  meta content= url_for(asset_path('favicon_patrick.png')) property="og:image"
   /! Twitter
   meta content="summary_large_image" property="twitter:card"
   meta content= root_url property="twitter:url"
   meta content= t('.charity_projects')
   meta content= t('.meta_description') property = "twitter:description"
+  meta content= url_for(asset_path('favicon_patrick.png')) property="twitter:image"
 section.py-5.text-center.container
   .row.py-lg-5
     .col-lg-6.col-md-8.mx-auto
