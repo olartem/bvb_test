@@ -8,13 +8,13 @@
   meta content= user_donations_url(@user) property="og:url"
   meta content= t('layouts.header.my_donations') property = "og:title"
   meta content= t('.meta_description') property = "og:description"
-  meta content= url_for(asset_path('favicon_patrick.png')) property="og:image"
+  meta content= image_url('favicon_patrick.png') property="og:image"
   /! Twitter
   meta content="summary_large_image" property="twitter:card"
   meta content= user_donations_url(@user) property="twitter:url"
   meta content= t('layouts.header.my_donations')
   meta content= t('.meta_description') property = "twitter:description"
-  meta content= url_for(asset_path('favicon_patrick.png')) property="twitter:image"
+  meta content= image_url('favicon_patrick.png') property="twitter:image"
 h2 =t('layouts.header.my_donations')
 table.table
   thead
