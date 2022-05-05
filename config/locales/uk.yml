@@ -55,6 +55,7 @@ uk:
         confirmation_status: Статус підтвердження
         confirmed: Підтверджено
         unconfirmed: Не підтверджено
+        meta_description: "Список ваших пожертвувань"
   projects:
       show:
         goal: Ціль

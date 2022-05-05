@@ -86,6 +86,7 @@ ru:
         confirmation_status: Статус Подтверждения
         confirmed: Подтверждено
         unconfirmed: Не подтверждено
+        meta_description: "Список ваших пожертвований"
   projects:
       show:
         goal: Цель

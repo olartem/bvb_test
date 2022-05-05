@@ -1,21 +1,21 @@
-head
+- provide :head_tags do
   /! Primary Meta Tags
-  title "My Donations"
-  meta content= "My Donations" name = "title"
-  meta content= "Your donations list" name = "description"
+  title =t('layouts.header.my_donations')
+  meta content= t('layouts.header.my_donations') name = "title"
+  meta content= t('.meta_description') name = "description"
   /! Open Graph / Facebook
   meta content="website" property="og:type"
   meta content= user_donations_url(@user) property="og:url"
-  meta content= "My Donations" property = "og:title"
-  meta content= "Your donations list" property = "og:description"
+  meta content= t('layouts.header.my_donations') property = "og:title"
+  meta content= t('.meta_description') property = "og:description"
   meta content= url_for(asset_path('favicon_patrick.png')) property="og:image"
   /! Twitter
   meta content="summary_large_image" property="twitter:card"
   meta content= user_donations_url(@user) property="twitter:url"
-  meta content= "My Donations"
-  meta content= "Your donations list" property = "twitter:description"
+  meta content= t('layouts.header.my_donations')
+  meta content= t('.meta_description') property = "twitter:description"
   meta content= url_for(asset_path('favicon_patrick.png')) property="twitter:image"
-h2 My Donations
+h2 =t('layouts.header.my_donations')
 table.table
   thead
     tr

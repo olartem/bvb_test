@@ -86,6 +86,7 @@ en:
         confirmation_status: Confirmation status
         confirmed: Confirmed
         unconfirmed: Unconfirmed
+        meta_description: "Your donations list"
   projects:
       show:
         goal: Goal
