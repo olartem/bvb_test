@@ -24,8 +24,37 @@ module Admin
           render pdf: 'Users', template: 'admin/application/users/export_pdf.html.erb', encoding: 'utf8'
         end
         format.xlsx {
-          render xlsx: 'Users', template: 'admin/application/users/export_excel.xlsx.axlsx'
+          export_excel
         }
+      end
+    end
+    def export_excel
+      Axlsx::Package.new do |excel_package|
+        style = excel_package.workbook.styles
+        header_cell = style.add_style bg_color: "7FFF00c",:b => true
+        article_cell = style.add_style bg_color: "ffffff",:b => true
+        delete_cell = style.add_style bg_color: "F08080",:b => true
+        excel_package.workbook.add_worksheet(name: "Users") do |sheet|
+          sheet.add_image(image_src: Rails.root.join("public", "assets", 'favicon_patrick.png').to_s) do |image|
+            image.width = 200
+            image.height = 200
+            image.start_at 6, 1
+          end
+
+          sheet.add_row [User.human_attribute_name("first_name"), User.human_attribute_name("last_name"),
+                         User.human_attribute_name("birth_date"), User.human_attribute_name("city"),
+                         User.human_attribute_name("is_admin"), User.human_attribute_name("is_deleted"),
+                         'Link: ' + root_url], style: header_cell
+          sheet.rows[0].cells[6].style = article_cell
+          @users.each do |user|
+            sheet.add_row [user.first_name, user.last_name, user.birth_date, user.city, user.is_admin,
+                           user.is_deleted], style: user.is_deleted ? delete_cell : article_cell
+          end
+        end
+        file = Tempfile.new(['Users', '.xlsx'])
+        excel_package.serialize file
+        send_file file
+        file.close
       end
     end
     # Overwrite any of the RESTful controller actions to implement custom behavior

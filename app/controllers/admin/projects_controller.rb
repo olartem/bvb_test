@@ -24,8 +24,36 @@ module Admin
           render pdf: 'Projects', template: 'admin/application/projects/export_pdf.html.erb', encoding: 'utf8'
         end
         format.xlsx {
-          render xlsx: 'Projects', template: 'admin/application/projects/export_excel.xlsx.axlsx'
+          export_excel
         }
+      end
+    end
+    def export_excel
+      Axlsx::Package.new do |excel_package|
+        style = excel_package.workbook.styles
+        header_cell = style.add_style bg_color: "7FFF00c",:b => true
+        article_cell = style.add_style bg_color: "ffffff",:b => true
+        delete_cell = style.add_style bg_color: "F08080",:b => true
+        excel_package.workbook.add_worksheet(name: "Users") do |sheet|
+          sheet.add_image(image_src: Rails.root.join("public", "assets", 'favicon_patrick.png').to_s) do |image|
+            image.width = 200
+            image.height = 200
+            image.start_at 5, 1
+          end
+
+          sheet.add_row [Project.human_attribute_name("name"), Project.human_attribute_name("money_goal"),
+                         Project.human_attribute_name("current_money"), Project.human_attribute_name("end_date"),
+                         Project.human_attribute_name("is_deleted"), 'Link: ' + root_url], style: header_cell
+          sheet.rows[0].cells[5].style = article_cell
+          @projects.each do |project|
+            sheet.add_row [project.name, project.money_goal, project.current_money, project.end_date.strftime("%F"),
+                           project.is_deleted], style: project.end_date > DateTime.now ? article_cell : delete_cell
+          end
+        end
+        file = Tempfile.new(['Projects', '.xlsx'])
+        excel_package.serialize file
+        send_file file
+        file.close
       end
     end
     # Overwrite any of the RESTful controller actions to implement custom behavior

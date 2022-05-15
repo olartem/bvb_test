@@ -30,8 +30,37 @@ module Admin
           render pdf: 'Donations', template: 'admin/application/donations/export_pdf.html.erb', encoding: 'utf8'
         end
         format.xlsx {
-          render xlsx: 'Donations', template: 'admin/application/donations/export_excel.xlsx.axlsx'
+          export_excel
         }
+      end
+    end
+    def export_excel
+      Axlsx::Package.new do |excel_package|
+        style = excel_package.workbook.styles
+        header_cell = style.add_style bg_color: "7FFF00c",:b => true
+        article_cell = style.add_style bg_color: "ffffff",:b => true
+        delete_cell = style.add_style bg_color: "F08080",:b => true
+        excel_package.workbook.add_worksheet(name: "Users") do |sheet|
+          sheet.add_image(image_src: Rails.root.join("public", "assets", 'favicon_patrick.png').to_s) do |image|
+            image.width = 200
+            image.height = 200
+            image.start_at 5, 1
+          end
+
+          sheet.add_row [Donation.human_attribute_name("user"), Donation.human_attribute_name("project"),
+                         Donation.human_attribute_name("amount"), Donation.human_attribute_name("confirmation_status"),
+                         Donation.human_attribute_name("is_deleted"), 'Link: ' + root_url], style: header_cell
+          sheet.rows[0].cells[5].style = article_cell
+          @donations.each do |donation|
+            sheet.add_row [donation.user.first_name + ' ' + donation.user.last_name, donation.project.name, donation.amount,
+                           donation.confirmation_status, donation.is_deleted],
+                          style: donation.confirmation_status ? article_cell : delete_cell
+          end
+        end
+        file = Tempfile.new(['Donations', '.xlsx'])
+        excel_package.serialize file
+        send_file file
+        file.close
       end
     end
     # Override this method to specify custom lookup behavior.
